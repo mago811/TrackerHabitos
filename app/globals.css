@@ -1,40 +1,29 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --indigo: #6366f1;
+  --indigo-dark: #4f46e5;
+  --bg: #f3f4f6;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --danger: #ef4444;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
+}
+
+html,
+body {
   margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -42,8 +31,406 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* ---------- Auth ---------- */
+.auth {
+  max-width: 380px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+}
+.auth h1 {
+  text-align: center;
+  color: var(--indigo);
+  margin: 0 0 4px;
+}
+.auth-sub {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.auth-form input {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+.auth-form button {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--indigo);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.auth-alt {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 18px;
+}
+.auth-alt a {
+  color: var(--indigo);
+  font-weight: 600;
+}
+
+/* ---------- App shell ---------- */
+.app-shell {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+.app-main {
+  flex: 1;
+  padding: 16px 16px 88px;
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 8px 4px;
+}
+.bottom-nav a,
+.bottom-nav button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-ico {
+  font-size: 18px;
+}
+
+/* ---------- Pages ---------- */
+.page h1 {
+  font-size: 24px;
+  margin: 8px 0 16px;
+}
+.empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px;
+  list-style: none;
+}
+
+/* ---------- Habits ---------- */
+.habit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.habit-item {
+  background: var(--card);
+  border-radius: 12px;
+  border-left: 4px solid var(--indigo);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.habit-item strong {
+  display: block;
+}
+.habit-meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+.link-danger {
+  background: none;
+  border: none;
+  color: var(--danger);
+  font-size: 13px;
+  cursor: pointer;
+}
+.add-habit {
+  width: 100%;
+  padding: 14px;
+  border: 2px dashed var(--indigo);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--indigo);
+  font-weight: 600;
+  cursor: pointer;
+}
+.habit-form {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.habit-form input,
+.habit-form select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 100%;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--muted);
+  flex: 1;
+}
+.field-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+.days {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  gap: 4px;
+  padding: 10px;
+}
+.days legend {
+  font-size: 13px;
+  color: var(--muted);
+}
+.day-chk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+.habit-form button[type="submit"] {
+  background: var(--indigo);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+.habit-form .secondary {
+  background: var(--border);
+  color: var(--text);
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  flex: 1;
+}
+
+/* ---------- Today ---------- */
+.week-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.week-day {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--muted);
+}
+.week-day.active {
+  background: var(--indigo);
+  color: #fff;
+}
+.wd-label {
+  display: block;
+  font-size: 11px;
+}
+.wd-num {
+  display: block;
+  font-weight: 700;
+}
+.today-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.today-item {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.today-name {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.today-row {
+  list-style: none;
+  border-left: 4px solid var(--indigo);
+  padding-left: 12px;
+}
+.today-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.today-info {
+  flex: 1;
+}
+.today-progress {
+  font-size: 13px;
+  color: var(--muted);
+}
+.bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: var(--indigo);
+  transition: width 0.2s;
+}
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.stepper button {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 18px;
+  cursor: pointer;
+}
+.stepper input {
+  width: 56px;
+  text-align: center;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.check-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+.check-btn.checked {
+  background: var(--indigo);
+  color: #fff;
+  border-color: var(--indigo);
+}
+
+/* ---------- Reports ---------- */
+.period-toggle {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.pill {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted);
+  font-size: 14px;
+}
+.pill.active {
+  background: var(--indigo);
+  color: #fff;
+}
+.period-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.nav-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--card);
+  font-size: 20px;
+}
+.period-range {
+  font-size: 13px;
+  color: var(--muted);
+}
+.report-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.report-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 14px;
+}
+.report-card header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.rc-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.rc-pct {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 18px;
+}
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 12px);
+  gap: 3px;
+}
+.heat-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
 }
